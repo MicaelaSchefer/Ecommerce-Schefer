@@ -1,10 +1,11 @@
 
-import './App.css';
+import './App.scss';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <h1>Ecommerce Schefer</h1>
+      <NavBar />
     </div>
   );
 }
