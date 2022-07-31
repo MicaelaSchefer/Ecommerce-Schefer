@@ -1,17 +1,33 @@
-import ItemCount from '../ItemCount/ItemCount';
+import {useState, useEffect} from 'react'
+import products from '../../utils/products.mock';
+import ItemList from '../../ItemList/ItemList';
 
-const ItemListContainer= ({title}) => {
+
+const ItemListContainer= ({section}) => {
+    const [listProducts, setListProducts] =useState([])
+    const getProducts = new Promise ((resolve, reject) => {
+        setTimeout( () => {
+            resolve(products)
+        }, 2000)
+    })
+      
+    useEffect(() => {
+          getProducts
+               .then((res) => {
+                 setListProducts(res)
+               })
+               .catch((error) =>{
+                 console.log("no found")
+               })
+               .finally((done) => {})
+               },[])
+   
+
 
         return(
             <div>
-             <img src="/assets/rcKitten.png" alt="Imagen producto"/>
-             <p>{title}</p>
-             <spam>$1000 kg</spam>  
-             <ItemCount/> 
-             <button>Comprar</button>
-            
-
-
+             
+             <Itemlist dataProducts= {listProducts}/>
             </div>
 
 
