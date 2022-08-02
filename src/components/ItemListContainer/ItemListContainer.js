@@ -27,7 +27,7 @@ const ItemListContainer= ({section}) => {
         return(
             <div>
              
-             <Itemlist dataProducts= {listProducts}/>
+             <ItemList dataProducts= {listProducts}/>
             </div>
 
 
